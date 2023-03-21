@@ -1,3 +1,6 @@
+https://ngchallenges.gitbook.io/example-angular/kanban/kanban/creando-el-kanban#4.-modificando-el-home
+
+
 # Workshop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
