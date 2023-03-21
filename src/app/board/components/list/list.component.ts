@@ -1,14 +1,19 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ListSchema, TaskSchema } from './../../../core/models';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, Input } from '@angular/core';
-import { ListSchema } from 'src/app/core/models/listschema';
-
+/* import { TaskService } from 'src/app/core/services/task.service'; */
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   @Input() list!: ListSchema;
+  @Output() editTask: EventEmitter<TaskSchema> = new EventEmitter();
+
+  constructor() {}
+
+  ngOnInit(): void {}
 
   drop(event: any) {
     if (event.previousContainer === event.container) {
@@ -19,5 +24,15 @@ export class ListComponent {
                         event.previousIndex,
                         event.currentIndex);
     }
+    
   }
+
+  handleEdit(task: TaskSchema){
+    if (this.list) {
+      task.listId = this.list.id;
+      this.editTask.emit(task);
+    }
+  }
+
+ 
 }

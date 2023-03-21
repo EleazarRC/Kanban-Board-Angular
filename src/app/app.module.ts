@@ -9,12 +9,13 @@ import { SharedModule } from './shared/shared.module';
 import { BoardModule } from './board/board.module';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule  } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,9 @@ import { HttpClientModule  } from '@angular/common/http';
     SharedModule,
     BoardModule,
     HomeModule,
-    HttpClientModule 
+    HttpClientModule,
+    CommonModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
